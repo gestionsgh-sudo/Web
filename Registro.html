@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="es-ES">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SGH | Tu Trámite, Resuelto · Registro</title>
+<link rel="stylesheet" href="style.css">
+<style>
+  /* Estilos mínimos para las pestañas de Registro/Acceso */
+  .auth-wrap{min-height:calc(100dvh - 80px);display:grid;place-items:center}
+  .auth{width:min(560px,92vw)}
+  .tabs{display:flex;gap:8px;margin-bottom:12px}
+  .tab{flex:1;text-align:center;padding:10px;border:1px solid var(--c-border);
+       background:#fff;border-radius:12px;font-weight:700;cursor:pointer}
+  .tab[aria-selected="true"]{background:color-mix(in srgb,var(--c-primary) 8%,#fff);border-color:color-mix(in srgb,var(--c-primary) 25%,#fff)}
+  .field{margin:10px 0}
+  .field label{font-weight:600;margin-bottom:6px;display:block}
+  .field input{width:100%;height:44px;border:1px solid var(--c-border);border-radius:12px;padding:0 12px;background:#fff}
+  .agree{display:flex;gap:8px;align-items:flex-start}
+  .muted{color:var(--c-muted);font-size:14px}
+  .center{display:flex;justify-content:center}
+</style>
+</head>
+<body>
+
+<!-- Barra superior (cumplimiento) -->
+<div class="trustbar">
+  <div class="container">
+    <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+      <path d="M12 3l7 3v6c0 5-3.5 9-7 9s-7-4-7-9V6l7-3z" stroke-width="1.6"/>
+      <path d="M9 12l2 2 4-4" stroke-width="1.8"/>
+    </svg>
+    <span>RGPD: datos mínimos, cifrado en tránsito, control por el usuario</span>
+  </div>
+</div>
+
+<!-- Cabecera mínima -->
+<header class="header">
+  <div class="container">
+    <a class="logo" href="index.html" aria-label="Inicio SGH">
+      <div class="logo-mark">S</div>
+      SGH | Tu Trámite, Resuelto
+    </a>
+    <nav class="nav" aria-label="principal">
+      <a href="aviso-legal.html">Legal</a>
+      <a href="privacidad.html">Privacidad</a>
+      <a href="cookies.html">Cookies</a>
+      <a class="btn btn-ghost" href="dgt-multas.html">Ir a DGT</a>
+    </nav>
+  </div>
+</header>
+
+<main class="auth-wrap container">
+  <section class="auth card" aria-labelledby="titulo-auth">
+    <h1 id="titulo-auth" style="font-size:var(--h1);margin:0 0 6px;letter-spacing:-.02em">SGH | Tu Trámite, Resuelto</h1>
+    <p class="muted" style="margin:0 0 12px">Documentos claros, listos para presentar.</p>
+
+    <!-- Pestañas -->
+    <div role="tablist" aria-label="Registro o acceso" class="tabs">
+      <button id="t-reg" class="tab" role="tab" aria-selected="true" aria-controls="panel-reg">Crear cuenta</button>
+      <button id="t-log" class="tab" role="tab" aria-selected="false" aria-controls="panel-log">Entrar</button>
+    </div>
+
+    <!-- Panel Registro -->
+    <div id="panel-reg" role="tabpanel" aria-labelledby="t-reg">
+      <form action="AQUI_TU_WEBHOOK_REGISTRO" method="POST" id="form-reg">
+        <input type="hidden" name="form_name" value="registro">
+        <div class="field">
+          <label for="r-nombre">Nombre y apellidos *</label>
+          <input id="r-nombre" name="nombre_completo" required>
+        </div>
+        <div class="field">
+          <label for="r-email">Correo electrónico *</label>
+          <input id="r-email" type="email" name="email" required>
+        </div>
+        <div class="field">
+          <label for="r-telefono">Teléfono <span class="muted">(opcional)</span></label>
+          <input id="r-telefono" name="telefono" placeholder="612 34 56 78">
+        </div>
+        <div class="field agree">
+          <input id="r-rgpd" type="checkbox" name="acepto_rgpd" required>
+          <label for="r-rgpd" class="muted">
+            He leído y acepto la <a href="privacidad.html" target="_blank">Política de Privacidad</a> y el
+            <a href="aviso-legal.html" target="_blank">Aviso legal</a>. Esta página es <strong>no oficial</strong> del Estado.
+          </label>
+        </div>
+        <div class="center" style="gap:10px;margin-top:8px">
+          <button class="btn btn-primary" type="submit">Crear cuenta</button>
+          <a class="btn btn-secondary" href="dgt-multas.html">Usar sin registrarme</a>
+        </div>
+        <p class="muted" style="margin-top:12px">No guardamos contraseñas. Te enviaremos un correo de bienvenida con instrucciones.</p>
+      </form>
+    </div>
+
+    <!-- Panel Acceso (enlace mágico por correo) -->
+    <div id="panel-log" role="tabpanel" aria-labelledby="t-log" hidden>
+      <form action="AQUI_TU_WEBHOOK_ACCESO" method="POST" id="form-log">
+        <input type="hidden" name="form_name" value="acceso">
+        <div class="field">
+          <label for="l-email">Correo electrónico *</label>
+          <input id="l-email" type="email" name="email" required>
+        </div>
+        <div class="center" style="gap:10px;margin-top:8px">
+          <button class="btn btn-primary" type="submit">Enviarme enlace de acceso</button>
+          <a class="btn btn-secondary" href="dgt-multas.html">Ir a DGT</a>
+        </div>
+        <p class="muted" style="margin-top:12px">Recibirás un enlace temporal para entrar. Sin contraseñas.</p>
+      </form>
+    </div>
+
+    <div class="notice" style="margin-top:16px">
+      <strong>Transparencia:</strong> Servicio automatizado y <strong>no oficial</strong> del Estado. No sustituye a profesionales
+      (abogado, gestor o administrador). Para casos complejos, consulta con un profesional.
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container cols">
+    <div class="small">
+      © SGH – Datos mínimos, sin publicidad ni seguimiento. <a href="cookies.html">Cookies</a>.
+    </div>
+    <div style="display:flex;gap:14px;flex-wrap:wrap">
+      <a href="aviso-legal.html">Aviso legal</a>
+      <a href="privacidad.html">Privacidad</a>
+      <a href="contacto.html">Contacto</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* Tabs accesibles */
+const tReg=document.getElementById('t-reg'), tLog=document.getElementById('t-log');
+const pReg=document.getElementById('panel-reg'), pLog=document.getElementById('panel-log');
+function sel(tab){
+  const reg = tab==='reg';
+  tReg.setAttribute('aria-selected', reg); tLog.setAttribute('aria-selected', !reg);
+  pReg.hidden = !reg; pLog.hidden = reg;
+}
+tReg.addEventListener('click',()=>sel('reg'));
+tLog.addEventListener('click',()=>sel('log'));
+</script>
+</body>
+</html>
