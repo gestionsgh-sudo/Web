@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="es-ES">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>¿Quiénes somos? · SGH</title>
+<link rel="stylesheet" href="style.css">
+<style>
+  /* Estilos mínimos propios de esta página */
+  .about-grid{display:grid;gap:24px;align-items:center}
+  @media(min-width:900px){ .about-grid{grid-template-columns:1.2fr .8fr} }
+
+  .badge-sgh{
+    width:min(240px, 56vw); aspect-ratio:1/1;
+    border:2px solid var(--c-primary); border-radius:999px;
+    display:grid; place-items:center; margin-inline:auto;
+    background:color-mix(in srgb, var(--c-primary) 8%, #fff);
+    box-shadow:var(--shadow); color:var(--c-primary);
+    font-weight:900; font-size:clamp(36px,6vw,56px); letter-spacing:.02em;
+  }
+  .lead{font-size:18px}
+</style>
+</head>
+<body>
+
+<!-- Cabecera coherente -->
+<header class="header">
+  <div class="container">
+    <a class="logo" href="index.html" aria-label="Inicio SGH">
+      <div class="logo-mark">S</div>
+      SGH | Tu Trámite, Resuelto
+    </a>
+    <nav class="nav" aria-label="principal">
+      <a href="panel.html">Trámites</a>
+      <a href="aviso-legal.html">Legal</a>
+      <a href="contacto.html">Contacto</a>
+    </nav>
+  </div>
+</header>
+
+<main class="container stack" style="padding:24px 0">
+  <section class="card about-grid">
+    <div>
+      <h1 style="font-size:var(--h2);margin:0 0 8px;letter-spacing:-.02em">¿Quiénes somos?</h1>
+      <p class="lead" style="margin:0 0 12px;color:var(--c-muted)">
+        Personas que creemos que los trámites sencillos deben ser, por fin, sencillos.
+      </p>
+      <p>
+        <strong>SGH, S.L.</strong> es una empresa española fundada por una jurista en formación que detectó una necesidad clara:
+        los trámites sencillos no deberían ser complicados. Por eso creamos plantillas autorrellenables y guías claras que
+        transforman respuestas simples en documentos listos para presentar, con privacidad y cumplimiento RGPD desde el diseño.
+      </p>
+      <p>
+        Somos una empresa pequeña y ágil, con mucho entusiasmo y obsesión por la calidad: trabajamos para ahorrarte tiempo,
+        errores y desplazamientos en tu día a día.
+      </p>
+    </div>
+
+    <aside aria-label="Identidad visual SGH" class="stack" style="justify-items:center">
+      <div class="badge-sgh" aria-hidden="true">SGH</div>
+      <p class="small" style="color:var(--c-muted);margin:8px 0 0">
+        Servicio automatizado y <strong>no oficial</strong> del Estado.
+      </p>
+    </aside>
+  </section>
+
+  <section class="card" style="display:flex;gap:14px;flex-wrap:wrap;align-items:center;justify-content:space-between">
+    <p class="small" style="color:var(--c-muted);margin:0">
+      Datos mínimos, cifrado en tránsito, control por el usuario (RGPD).
+    </p>
+    <div style="display:flex;gap:10px;flex-wrap:wrap">
+      <a class="btn btn-secondary" href="panel.html">Ver trámites</a>
+      <a class="btn btn-primary" href="dgt-multas.html">Empezar ahora</a>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container cols">
+    <div class="small">
+      © SGH · Página <b>no oficial</b> del Estado. No sustituye a profesionales (abogado, gestor o administrador).
+    </div>
+    <div style="display:flex;gap:14px;flex-wrap:wrap">
+      <a href="aviso-legal.html">Aviso legal</a>
+      <a href="privacidad.html">Privacidad</a>
+      <a href="cookies.html">Cookies</a>
+      <a href="contacto.html">Contacto</a>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
