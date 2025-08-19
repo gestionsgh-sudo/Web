@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="es-ES">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Contacto · SGH</title>
+<link rel="stylesheet" href="style.css">
+<style>
+  .form{max-width:680px}
+  .field{margin:10px 0}
+  .field label{font-weight:600;margin-bottom:6px;display:block}
+  .field input, .field select, .field textarea{
+    width:100%;height:44px;border:1px solid var(--c-border);
+    border-radius:12px;padding:0 12px;background:#fff
+  }
+  .field textarea{height:140px;padding:12px}
+  .agree{display:flex;gap:8px;align-items:flex-start}
+  .muted{color:var(--c-muted);font-size:14px}
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div class="container">
+    <a class="logo" href="index.html"><div class="logo-mark">S</div>SGH | Tu Trámite, Resuelto</a>
+    <nav class="nav">
+      <a href="quienes-somos.html">¿Quiénes somos?</a>
+      <a href="aviso-legal.html">Legal</a>
+      <a href="panel.html">Trámites</a>
+    </nav>
+  </div>
+</header>
+
+<main class="container stack" style="padding:24px 0">
+  <section class="card form">
+    <h1 style="font-size:var(--h2);margin:0 0 8px">Contacto</h1>
+    <p class="muted" style="margin:0 0 12px">Te respondemos por email. Campos marcados con * son obligatorios.</p>
+
+    <form action="AQUI_TU_WEBHOOK_CONTACTO" method="POST">
+      <input type="hidden" name="form_name" value="contacto">
+
+      <div class="field">
+        <label for="c-nombre">Nombre y apellidos *</label>
+        <input id="c-nombre" name="nombre" required>
+      </div>
+
+      <div class="field">
+        <label for="c-email">Correo electrónico *</label>
+        <input id="c-email" type="email" name="email" required>
+      </div>
+
+      <div class="field">
+        <label for="c-asunto">Asunto *</label>
+        <select id="c-asunto" name="asunto" required>
+          <option value="">— Selecciona —</option>
+          <option>DGT · Multas</option>
+          <option>Herencias</option>
+          <option>Vivienda</option>
+          <option>Educativos</option>
+          <option>Otro</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label for="c-mensaje">Mensaje *</label>
+        <textarea id="c-mensaje" name="mensaje" required placeholder="Cuéntanos brevemente tu consulta…"></textarea>
+      </div>
+
+      <div class="field agree">
+        <input id="c-rgpd" type="checkbox" name="acepto_rgpd" required>
+        <label for="c-rgpd" class="muted">
+          He leído y acepto la <a href="privacidad.html" target="_blank">Política de Privacidad</a>.
+          Esta página es <strong>no oficial</strong> del Estado y no sustituye a profesionales.
+        </label>
+      </div>
+
+      <div style="display:flex;gap:10px;flex-wrap:wrap">
+        <button class="btn btn-primary" type="submit">Enviar mensaje</button>
+        <a class="btn btn-secondary" href="panel.html">Volver a trámites</a>
+      </div>
+    </form>
+  </section>
+
+  <section class="card small" style="color:var(--c-muted)">
+    <b>Transparencia:</b> Datos mínimos, cifrado en tránsito. Usa este canal solo para consultas generales.
+    No envíes datos especialmente protegidos.
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container cols">
+    <div class="small">© SGH · <a href="cookies.html">Cookies</a></div>
+    <div style="display:flex;gap:14px;flex-wrap:wrap">
+      <a href="aviso-legal.html">Aviso legal</a>
+      <a href="privacidad.html">Privacidad</a>
+      <a href="quienes-somos.html">¿Quiénes somos?</a>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
